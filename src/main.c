@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 
         while(read(fd[0], buf, 1) > 0) {
            if (buf[0] == ' ') {
-                buf[0] = '_'; //замена строчных букв на заглавные
+                buf[0] = '_'; //замена
            }
             write(1, buf, 1);             // в stdout
         }
