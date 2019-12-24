@@ -9,7 +9,6 @@ int main(int argc, char** argv) {
     pid_t pid;
     int rv;
     int fd[2];
-
     if (pipe(fd) == -1) {
         perror("pipe error");
         exit(1);
@@ -18,7 +17,6 @@ int main(int argc, char** argv) {
     if ((pid = fork()) < 0) {
         perror("fork error");
         exit(1);
-
     } else if (pid == 0) {                // потомок
         close(fd[0]);                     // потомок не читает
         dup2(fd[1], STDOUT_FILENO);       // перенаправление stdout
