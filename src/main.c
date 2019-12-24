@@ -9,6 +9,7 @@ int main(int argc, char** argv) {
     pid_t pid;
     int rv;
     int fd[2];
+    
     if (pipe(fd) == -1) {
         perror("pipe error");
         exit(1);
