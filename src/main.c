@@ -20,9 +20,6 @@ int main(int argc, char** argv)
             exit(1);
 
         case 0:
-            printf(" CHILD: ПроцПотомок, Мой PID -- %d\n", getpid());
-            printf(" CHILD: PID моего родителя -- %d\n", getppid());
-            printf(" CHILD: Введите мой код возврата: ___\b\b\b");
             close(fd[0]);                     // потомок не читает
             dup2(fd[1], STDOUT_FILENO);       // перенаправление stdout
             rv = execvp(argv[1], argv + 1);
