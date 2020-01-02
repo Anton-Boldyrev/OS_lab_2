@@ -14,6 +14,7 @@ int main(int argc, char** argv)
         perror("pipe error");
         exit(1);
     }
+    
     switch ( pid = fork() ) {
         case -1:
             perror("fork");
@@ -35,8 +36,10 @@ int main(int argc, char** argv)
                 }
                 write(1, buf, 1);             // в stdout
             }
+            
             exit(WEXITSTATUS(rv));
             wait(0);
     }
-return 0;
+    
+    return 0;
 }
